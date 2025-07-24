@@ -247,4 +247,11 @@ describe("predictWords method", () => {
       ])
     );
   });
+
+  test("should handle very long word in the trie", () => {
+    const longWord = "a".repeat(100);
+    trie.addWord(longWord);
+    const result = trie.predictWords("a".repeat(100));
+    expect(result).toEqual([longWord]);
+  });
 });
