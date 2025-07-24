@@ -36,7 +36,9 @@ class AutoCompleteTrie {
     //Return: array of all possible completions
     //Example: prefix "ca" might return ["cat", "car", "card", "care"]
     let possibleCompletions = [];
-
+    let start_node = _getRemainingTree(prefix, this.root);
+    if (!start_node) return null;
+    _allWordsHelper(prefix, start_node, possibleCompletions);
     return possibleCompletions;
   }
 }

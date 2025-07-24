@@ -193,3 +193,58 @@ describe("_allWordsHelper method", () => {
     expect(results).toEqual([]);
   });
 });
+
+describe("predictWords method", () => {
+  let trie;
+
+  beforeEach(() => {
+    trie = new AutoCompleteTrie();
+    trie.addWord("cat");
+    trie.addWord("car");
+    trie.addWord("dog");
+    trie.addWord("card");
+    trie.addWord("care");
+    trie.addWord("lior");
+    trie.addWord("li");
+  });
+
+  test("should return all completions for given prefix", () => {
+    const result = trie.predictWords("ca");
+    expect(result).toEqual(
+      expect.arrayContaining(["cat", "car", "card", "care"])
+    );
+    expect(result).not.toContain("dog");
+  });
+
+  test("should return empty array for unknown prefix", () => {
+    const result = trie.predictWords("zoo");
+    expect(result).toBeNull();
+  });
+
+  test("should return all words starting with prefix 'li'", () => {
+    const result = trie.predictWords("li");
+    expect(result).toEqual(expect.arrayContaining(["li", "lior"]));
+    expect(result).not.toContain("car");
+  });
+
+  test("should return empty array for empty trie", () => {
+    const emptyTrie = new AutoCompleteTrie();
+    const result = emptyTrie.predictWords("a");
+    expect(result).toBeNull();
+  });
+
+  test("should return all words if prefix is empty", () => {
+    const result = trie.predictWords("");
+    expect(result).toEqual(
+      expect.arrayContaining([
+        "cat",
+        "car",
+        "card",
+        "care",
+        "dog",
+        "li",
+        "lior",
+      ])
+    );
+  });
+});
