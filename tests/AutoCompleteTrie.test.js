@@ -62,7 +62,7 @@ describe("printAllLetters function", () => {
   });
 
   test("prints structure of trie", () => {
-    const printAllLetters = require("../trie/trieHelpers");
+    const printAllLetters = require("./TrieNode.js");
     printAllLetters(trie);
     expect(consoleSpy).toHaveBeenCalled(); // בדיקה בסיסית
     // אפשר גם לבדוק קריאות ספציפיות
@@ -78,7 +78,7 @@ describe("tests for findWord method", () => {
     node.addWord("ron");
   });
 
-  test("lior sould be a word", () => {
+  test("lior should be a word", () => {
     let ans = node.findWord("lior");
     expect(ans).toBeTruthy();
   });
