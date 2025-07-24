@@ -1,6 +1,7 @@
 const AutoCompleteTrie = require("../trie/AutoCompleteTrie");
+const { printAllLetters, _getRemainingTree } = require("../trie/trieHelpers");
 
-describe("tests for addWord method", () => {
+describe("addWord method", () => {
   let node1;
   beforeEach(() => {
     node1 = new AutoCompleteTrie();
@@ -47,7 +48,7 @@ describe("tests for addWord method", () => {
   });
 });
 
-describe("printAllLetters function", () => {
+describe("printAllLetters method", () => {
   let trie;
   let consoleSpy;
 
@@ -62,14 +63,13 @@ describe("printAllLetters function", () => {
   });
 
   test("prints structure of trie", () => {
-    const printAllLetters = require("./TrieNode.js");
     printAllLetters(trie);
     expect(consoleSpy).toHaveBeenCalled(); // בדיקה בסיסית
     // אפשר גם לבדוק קריאות ספציפיות
   });
 });
 
-describe("tests for findWord method", () => {
+describe("findWord method", () => {
   let node;
   beforeEach(() => {
     node = new AutoCompleteTrie();
@@ -110,5 +110,45 @@ describe("tests for findWord method", () => {
   test("completely unrelated word", () => {
     let ans = node.findWord("banana");
     expect(ans).toBe(false);
+  });
+});
+
+describe("_getRemainingTree function", () => {
+  let trie;
+
+  beforeEach(() => {
+    trie = new AutoCompleteTrie();
+    trie.addWord("cat");
+    trie.addWord("car");
+    trie.addWord("dog");
+  });
+
+  test("should return correct node for valid prefix", () => {
+    const result = _getRemainingTree("ca", trie.root);
+    expect(result.value).toBe("a");
+    expect(Object.keys(result.children)).toEqual(
+      expect.arrayContaining(["t", "r"])
+    );
+  });
+
+  test("should return null for non-existing prefix", () => {
+    const result = _getRemainingTree("cab", trie.root);
+    expect(result).toBeNull();
+  });
+
+  test("should return the root node for empty prefix", () => {
+    const result = _getRemainingTree("", trie.root);
+    expect(result).toBe(trie.root);
+  });
+
+  test("should return node for complete word prefix", () => {
+    const result = _getRemainingTree("dog", trie.root);
+    expect(result.value).toBe("g");
+    expect(result.endOfWord).toBe(true);
+  });
+
+  test("should return null for uppercase prefix if not in trie", () => {
+    const result = _getRemainingTree("Dog", trie.root);
+    expect(result).toBeNull();
   });
 });
