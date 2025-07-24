@@ -54,6 +54,16 @@ class AutoCompleteTrie {
 
     return wordsWithFreq.map((w) => w.word);
   }
-}
 
+  incrementCount(word) {
+    let node = this.root;
+    for (let char of word) {
+      if (!node.children[char]) return; // מילה לא קיימת - לא עושים כלום
+      node = node.children[char];
+    }
+    if (node.endOfWord) {
+      node.frequency++; // רק אם זו מילה שלמה
+    }
+  }
+}
 module.exports = AutoCompleteTrie;
