@@ -1,5 +1,5 @@
 const TrieNode = require("./TrieNode.js");
-const printAllLetters = require("./trieUtils.js");
+const printAllLetters = require("./trieHelpers.js");
 
 class AutoCompleteTrie {
   constructor() {
@@ -28,15 +28,13 @@ class AutoCompleteTrie {
     );
     return node.endOfWord;
   }
+  predictWords(prefix) {
+    //Return: array of all possible completions
+    //Example: prefix "ca" might return ["cat", "car", "card", "care"]
+    let possibleCompletions = [];
+
+    return possibleCompletions;
+  }
 }
-
-// let node1 = new AutoCompleteTrie();
-// node1.addWord("lior");
-// node1.addWord("liel");
-// node1.addWord("li");
-// node1.addWord("dani");
-
-// printAllLetters(node1);
-// node1.findWord("li");
 
 module.exports = AutoCompleteTrie;

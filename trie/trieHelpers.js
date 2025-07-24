@@ -1,5 +1,3 @@
-//const AutoCompleteTrie = require("./AutoCompleteTrie");
-
 const printAllLetters = function (trie) {
   function traverse(node, indent = "") {
     if (node.value) {

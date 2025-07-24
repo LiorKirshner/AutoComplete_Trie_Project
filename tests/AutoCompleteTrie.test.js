@@ -62,7 +62,7 @@ describe("printAllLetters function", () => {
   });
 
   test("prints structure of trie", () => {
-    const printAllLetters = require("../trie/trieUtils");
+    const printAllLetters = require("../trie/trieHelpers");
     printAllLetters(trie);
     expect(consoleSpy).toHaveBeenCalled(); // בדיקה בסיסית
     // אפשר גם לבדוק קריאות ספציפיות
