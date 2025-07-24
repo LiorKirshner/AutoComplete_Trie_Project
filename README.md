@@ -54,7 +54,7 @@ autocomplete-trie/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/liorkirshner/autocomplete-trie.git
+   git clone https://github.com/LiorKirshner/AutoComplete_Trie_Project.git
    ```
 2. Open `index.html` in your browser.
 3. Start typing in the input field and watch autocomplete in action!
