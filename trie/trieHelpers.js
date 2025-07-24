@@ -10,15 +10,12 @@ const printAllLetters = function (trie) {
   traverse(trie.root);
 };
 
-/**
- * Navigates to the last node of the given prefix.
- * @param {string} prefix - The prefix to search for in the trie.
- * @param {TrieNode} node - The starting node (usually trie.root).
- * @returns {TrieNode|null} - The node where the prefix ends, or null if the prefix is not found.
- *
- * Used by predictWords to find the subtree from which to start collecting completions.
- */
 function _getRemainingTree(prefix, node) {
+  /**
+   * Navigates to the last node of the given prefix.
+   * @returns {TrieNode|null} - The node where the prefix ends, or null if the prefix is not found.
+   * Used by predictWords to find the subtree from which to start collecting completions.
+   */
   let current = node;
   for (let char of prefix) {
     if (!current.children[char]) return null;
@@ -27,17 +24,23 @@ function _getRemainingTree(prefix, node) {
   return current;
 }
 
-/**
- * Recursively collects all complete words from a given node.
- * @param {string} prefix - The prefix built so far.
- * @param {TrieNode} node - The current node in the trie.
- * @param {string[]} allWords - The array to store found complete words.
- *
- * Called by predictWords to explore all paths starting from a node.
- * Adds full words to allWords when endOfWord is true.
- */
 function _allWordsHelper(prefix, node, allWords) {
-  // TODO: implement recursive collection of words
+  /**
+   * Recursively collects all complete words from a given node.
+   * @param {string} prefix - The prefix built so far.
+   * @param {TrieNode} node - The current node in the trie.
+   * @param {string[]} allWords - The array to store found complete words.
+   *
+   * Called by predictWords to explore all paths starting from a node.
+   * Adds full words to allWords when endOfWord is true.
+   */
+
+  if (node.endOfWord) allWords.push(prefix);
+  for (let char in node.children) {
+    _allWordsHelper(prefix + char, node.children[char], allWords);
+  }
+
+  return allWords;
 }
 
 module.exports = {

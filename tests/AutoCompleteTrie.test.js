@@ -1,5 +1,10 @@
+//const { describe } = require("node:test");
 const AutoCompleteTrie = require("../trie/AutoCompleteTrie");
-const { printAllLetters, _getRemainingTree } = require("../trie/trieHelpers");
+const {
+  printAllLetters,
+  _getRemainingTree,
+  _allWordsHelper,
+} = require("../trie/trieHelpers");
 
 describe("addWord method", () => {
   let node1;
@@ -150,5 +155,41 @@ describe("_getRemainingTree function", () => {
   test("should return null for uppercase prefix if not in trie", () => {
     const result = _getRemainingTree("Dog", trie.root);
     expect(result).toBeNull();
+  });
+});
+
+describe("_allWordsHelper method", () => {
+  let trie;
+
+  beforeEach(() => {
+    trie = new AutoCompleteTrie();
+    trie.addWord("cat");
+    trie.addWord("car");
+    trie.addWord("dog");
+  });
+  test("should collect all words in the trie", () => {
+    let allWords = [];
+    _allWordsHelper("", trie.root, allWords);
+    expect(allWords).toEqual(expect.arrayContaining(["cat", "car", "dog"]));
+    expect(allWords).toHaveLength(3);
+  });
+
+  test("should return only words with shared prefix", () => {
+    const caNode = _getRemainingTree("ca", trie.root);
+    const results = _allWordsHelper("ca", caNode, []);
+    expect(results).toEqual(expect.arrayContaining(["cat", "car"]));
+    expect(results).not.toContain("dog");
+  });
+
+  test("should return single word for exact match", () => {
+    const dogNode = _getRemainingTree("dog", trie.root);
+    const results = _allWordsHelper("dog", dogNode, []);
+    expect(results).toEqual(["dog"]);
+  });
+
+  test("should return empty array if node is null", () => {
+    const nullNode = _getRemainingTree("zzz", trie.root);
+    const results = nullNode ? _allWordsHelper("zzz", nullNode, []) : [];
+    expect(results).toEqual([]);
   });
 });
