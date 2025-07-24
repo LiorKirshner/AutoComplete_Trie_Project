@@ -26,10 +26,11 @@ function showCommands() {
 // 🔁 לולאת קלט
 function prompt() {
   rl.question("> ", (input) => {
-    const [command, ...args] = input.trim().split(" ");
-    const argument = args.join(" ");
+    const [commandRaw, ...args] = input.trim().split(" ");
+    const command = commandRaw.toLowerCase();
+    const argument = args.join(" ").toLowerCase();
 
-    switch (command.toLowerCase()) {
+    switch (command) {
       case "add":
         if (argument) {
           trie.addWord(argument);
