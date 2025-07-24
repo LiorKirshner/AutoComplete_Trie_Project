@@ -52,18 +52,19 @@ class AutoCompleteTrie {
 
     wordsWithFreq.sort((a, b) => b.freq - a.freq); // 🔽 ממיין לפי תדירות
 
-    return wordsWithFreq.map((w) => w.word);
+    return wordsWithFreq;
   }
 
   incrementCount(word) {
     let node = this.root;
     for (let char of word) {
-      if (!node.children[char]) return; // מילה לא קיימת - לא עושים כלום
+      if (!node.children[char]) return 0; // מילה לא קיימת - לא עושים כלום
       node = node.children[char];
     }
     if (node.endOfWord) {
       node.frequency++; // רק אם זו מילה שלמה
     }
+    return node.frequency;
   }
 }
 module.exports = AutoCompleteTrie;
