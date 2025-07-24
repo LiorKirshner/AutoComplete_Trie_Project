@@ -14,7 +14,6 @@ class AutoCompleteTrie {
       node = node.children[char];
     }
     node.endOfWord = true;
-    return node;
   }
   findWord(word) {
     let node = this.root;

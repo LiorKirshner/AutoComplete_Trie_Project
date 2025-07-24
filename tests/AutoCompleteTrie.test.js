@@ -68,3 +68,47 @@ describe("printAllLetters function", () => {
     // אפשר גם לבדוק קריאות ספציפיות
   });
 });
+
+describe("tests for findWord method", () => {
+  let node;
+  beforeEach(() => {
+    node = new AutoCompleteTrie();
+    node.addWord("lior");
+    node.addWord("li");
+    node.addWord("ron");
+  });
+
+  test("lior sould be a word", () => {
+    let ans = node.findWord("lior");
+    expect(ans).toBeTruthy();
+  });
+  test("sub-word - lio :should be FALSE", () => {
+    let ans = node.findWord("lio");
+    expect(ans).toBe(false);
+  });
+
+  test("existing prefix as full word (li)", () => {
+    let ans = node.findWord("li");
+    expect(ans).toBe(true);
+  });
+
+  test("non-existing word with common prefix", () => {
+    let ans = node.findWord("lion");
+    expect(ans).toBe(false);
+  });
+
+  test("empty string input should return false", () => {
+    let ans = node.findWord("");
+    expect(ans).toBe(false);
+  });
+
+  test("case sensitivity - different casing should return false", () => {
+    let ans = node.findWord("Lior");
+    expect(ans).toBe(false);
+  });
+
+  test("completely unrelated word", () => {
+    let ans = node.findWord("banana");
+    expect(ans).toBe(false);
+  });
+});
