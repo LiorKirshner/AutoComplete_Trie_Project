@@ -1,5 +1,9 @@
-const TrieNode = require("./TrieNode.js");
-const printAllLetters = require("./trieHelpers.js");
+const TrieNode = require("../trie/TrieNode");
+const {
+  printAllLetters,
+  _getRemainingTree,
+  _allWordsHelper,
+} = require("./trieHelpers.js");
 
 class AutoCompleteTrie {
   constructor() {
