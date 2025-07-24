@@ -15,7 +15,19 @@ class AutoCompleteTrie {
     }
     node.endOfWord = true;
   }
-  findWord(word) {}
+  findWord(word) {
+    let node = this.root;
+    for (let char of word) {
+      if (!node.children[char]) {
+        return false;
+      }
+      node = node.children[char];
+    }
+    console.log(
+      `🔍 Does the word "${word}" exist in the trie? → ${node.endOfWord}`
+    );
+    return node.endOfWord;
+  }
 }
 
 let node1 = new AutoCompleteTrie();
@@ -25,5 +37,6 @@ node1.addWord("li");
 node1.addWord("dani");
 
 printAllLetters(node1);
+node1.findWord("li");
 
 module.exports = AutoCompleteTrie;
