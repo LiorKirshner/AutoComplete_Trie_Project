@@ -14,6 +14,7 @@ class AutoCompleteTrie {
       node = node.children[char];
     }
     node.endOfWord = true;
+    return node;
   }
   findWord(word) {
     let node = this.root;
@@ -30,13 +31,13 @@ class AutoCompleteTrie {
   }
 }
 
-let node1 = new AutoCompleteTrie();
-node1.addWord("lior");
-node1.addWord("liel");
-node1.addWord("li");
-node1.addWord("dani");
+// let node1 = new AutoCompleteTrie();
+// node1.addWord("lior");
+// node1.addWord("liel");
+// node1.addWord("li");
+// node1.addWord("dani");
 
-printAllLetters(node1);
-node1.findWord("li");
+// printAllLetters(node1);
+// node1.findWord("li");
 
 module.exports = AutoCompleteTrie;

@@ -1,0 +1,26 @@
+{
+  "name": "autocomplete_trie_project",
+  "version": "1.0.0",
+  "description": "A simple autocomplete application built with **JavaScript**, **HTML**, and **CSS**, using a **Trie (Prefix Tree)** data structure.   It suggests word completions based on user input – just like a search engine.",
+  "main": "main.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LiorKirshner/AutoComplete_Trie_Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LiorKirshner/AutoComplete_Trie_Project/issues"
+  },
+  "homepage": "https://github.com/LiorKirshner/AutoComplete_Trie_Project#readme",
+  "devDependencies": {
+    "jest": "^30.0.5"
+  }
+}
