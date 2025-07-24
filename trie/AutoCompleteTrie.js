@@ -35,11 +35,24 @@ class AutoCompleteTrie {
   predictWords(prefix) {
     //Return: array of all possible completions
     //Example: prefix "ca" might return ["cat", "car", "card", "care"]
-    let possibleCompletions = [];
+
     let start_node = _getRemainingTree(prefix, this.root);
-    if (!start_node) return null;
-    _allWordsHelper(prefix, start_node, possibleCompletions);
-    return possibleCompletions;
+    if (!start_node) return [];
+
+    const allWords = [];
+    _allWordsHelper(prefix, start_node, allWords);
+
+    const wordsWithFreq = allWords.map((word) => {
+      let node = this.root;
+      for (let char of word) {
+        node = node.children[char];
+      }
+      return { word, freq: node.frequency };
+    });
+
+    wordsWithFreq.sort((a, b) => b.freq - a.freq); // 🔽 ממיין לפי תדירות
+
+    return wordsWithFreq.map((w) => w.word);
   }
 }
 
