@@ -90,7 +90,6 @@ AutoComplete_Trie_Project/
 
 ## 👤 Author
 
-<p align="center">
   <a href="https://github.com/LiorKirshner">
     <img src="https://github.com/LiorKirshner/LiorKirshner/blob/main/blue_logo.png?raw=true" alt="Lior Kirshner Logo" width="100"/>
   </a>
