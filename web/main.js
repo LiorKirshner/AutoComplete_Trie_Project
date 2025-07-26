@@ -12,21 +12,21 @@ console.log("🔥 JS loaded!");
 document.addEventListener("DOMContentLoaded", () => {
   const addBtn = document.getElementById("addBtn");
   const input = document.getElementById("wordInput");
-  const output = document.getElementById("output");
+  const feedbackMessage = document.getElementById("feedback-message");
 
   addBtn.addEventListener("click", () => {
     const word = input.value.trim().toLowerCase();
 
     if (!word) {
-      output.innerHTML = `<div class="error-message">⚠️ Cannot add empty word`;
+      feedbackMessage.innerHTML = `<div class="error-message">⚠️ Cannot add empty word`;
       return;
     }
 
     const added = trie.addWord(word);
     if (added && trie.findWord(word)) {
-      output.innerHTML = `<div class="success-message">✅ "${word}" added to dictionary.</div>`;
+      feedbackMessage.innerHTML = `<div class="success-message">✅ "${word}" added to dictionary.</div>`;
     } else {
-      output.innerHTML = `<div class="error-message">⚠️ "${word}" already exists in the dictionary.</div>`;
+      feedbackMessage.innerHTML = `<div class="error-message">⚠️ "${word}" already exists in the dictionary.</div>`;
     }
     input.value = ""; // נקה את הקלט
     updateWordCountDisplay();

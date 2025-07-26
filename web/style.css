@@ -1,19 +1,64 @@
-#output {
+/* Base styling for layout sections  */
+body {
+  font-family: Arial, sans-serif;
+  margin: 40px;
+  background-color: #f9f9f9;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+.add-word-section,
+.autocomplete-section,
+.status-section {
+  margin: 20px auto;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background-color: #6c63ff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #574fd6;
+}
+
+#suggestions {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.feedback-message {
+  padding: 10px;
+  border-radius: 5px;
   margin-top: 20px;
   font-size: 18px;
-  color: green;
 }
 .success-message {
   background-color: #d4edda;
   color: #155724;
-  padding: 10px;
-  border-radius: 5px;
-  margin-top: 10px;
 }
 .error-message {
   background-color: #f8d7da;
   color: #721c24;
-  padding: 10px;
-  border-radius: 5px;
-  margin-top: 10px;
 }
