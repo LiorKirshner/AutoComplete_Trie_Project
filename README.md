@@ -58,15 +58,9 @@ AutoComplete_Trie_Project/
 
 ---
 
-### 🖥️ Running from the Console
+## 🖼️ Screenshot
 
-1. Run the console interface:
-
-   ```bash
-   node console/index.js
-   ```
-
-2. Follow the on-screen instructions to add, search, or use words in the Trie.
+![Autocomplete Trie UI Preview](./assets/screenshot.png)
 
 ---
 
