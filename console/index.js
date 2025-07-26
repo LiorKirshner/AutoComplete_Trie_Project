@@ -1,6 +1,6 @@
 // Legacy CLI interface for AutoCompleteTrie
-const readline = require("readline");
-const AutoCompleteTrie = require("../trie/AutoCompleteTrie");
+import readline from "readline";
+import AutoCompleteTrie from "../trie/AutoCompleteTrie.js";
 
 const rl = readline.createInterface({
   input: process.stdin,
