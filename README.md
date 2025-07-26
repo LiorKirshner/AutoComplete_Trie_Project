@@ -1,83 +1,93 @@
 # 🔤 Autocomplete Trie Project
 
-A simple autocomplete application built with **JavaScript**, **HTML**, and **CSS**, using a **Trie (Prefix Tree)** data structure.  
-It suggests word completions based on user input – just like a search engine.
+An interactive autocomplete application built with **JavaScript**, **HTML**, and **CSS**, powered by a **Trie (Prefix Tree)** data structure.  
+It suggests ranked word completions based on user input – just like a search engine – and tracks word usage frequency.
+
+---
+
+## ✨ Features
+
+- Add words dynamically via the UI
+- Autocomplete suggestions by prefix
+- Suggestions sorted by usage frequency
+- Keyboard and mouse selection
+- Tracks and displays word usage
+- Preloaded word list from `defaultWords.json`
+- Responsive and clean web UI
+- Works both in the browser (web UI) and in the terminal (console interface)
 
 ---
 
 ## 📁 Project Structure
 
 ```
-autocomplete-trie/
+AutoComplete_Trie_Project/
 │
-├── index.html              # Main HTML file – contains the input field and result container
-├── style.css               # Styling for the user interface
-├── main.js                 # Connects Trie logic with the DOM and handles input events
-│
-├── trie/                   # Trie data structure logic
-│   ├── Trie.js             # Trie class – handles insertion, search, and autocomplete
-│   └── TrieNode.js         # TrieNode class – represents a character node in the tree
-│
-├── data/                   # Word list for populating the Trie
-│   └── words.txt           # Text file or JSON containing words
-│
-├── assets/                 # Static assets (images, icons, fonts)
-│   └── logo.png            # Example asset (replace with your actual files)
-│
-├── tests/                  # Optional test files
-│   ├── testTrie.js         # Tests for the Trie logic
-│   └── testAutocomplete.js # Tests for the autocomplete functionality
-│
-├── README.md               # Project documentation (this file)
-└── .gitignore              # Specifies intentionally untracked files to ignore by Git
+├── assets/                 # Optional static assets
+├── console/
+│   └── index.js            # Console-based interface (optional)
+├── data/
+│   └── defaultWords.json   # Preloaded words list
+├── tests/
+│   └── AutoCompleteTrie.test.js # Tests for trie logic
+├── trie/
+│   ├── AutoCompleteTrie.js # Core Trie logic with usage tracking
+│   ├── TrieNode.js         # Node structure
+│   └── trieHelpers.js      # Internal helper functions
+├── web/
+│   ├── index.html          # Web UI HTML
+│   ├── main.js             # DOM handlers + Trie connection
+│   └── style.css           # Styles for UI
+├── README.md
+├── package.json
+└── package-lock.json
 ```
-
----
-
-## 📦 Folder Descriptions
-
-| Folder/File       | Description                                                                 |
-|-------------------|-----------------------------------------------------------------------------|
-| `index.html`      | Main entry point – includes search input and results container              |
-| `style.css`       | Custom styles for layout, fonts, and autocomplete suggestion box            |
-| `main.js`         | Loads words into the Trie and handles user typing + DOM manipulation        |
-| `trie/`           | Modular Trie and TrieNode classes used for building and searching the tree  |
-| `data/`           | List of words to build the Trie (can use `.txt`, `.json`, or fetch from API)|
-| `assets/`         | Static assets such as icons, logos, or background images                    |
-| `tests/`          | Contains test files for validating your code logic                          |
-| `README.md`       | Overview and structure of the project (you’re reading it!)                  |
-| `.gitignore`      | Prevents uploading of temporary or unnecessary files to GitHub              |
 
 ---
 
 ## 🚀 Getting Started
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/LiorKirshner/AutoComplete_Trie_Project.git
    ```
-2. Open `index.html` in your browser.
-3. Start typing in the input field and watch autocomplete in action!
+
+2. Open `web/index.html` in your browser.
+3. Start typing in the prefix input to test autocomplete.
+
+---
+
+### 🖥️ Running from the Console
+
+1. Run the console interface:
+
+   ```bash
+   node console/index.js
+   ```
+
+2. Follow the on-screen instructions to add, search, or use words in the Trie.
 
 ---
 
 ## 🧠 Built With
 
-- HTML + CSS
+- HTML + CSS (Responsive, accessible)
 - JavaScript (ES6+)
-- Trie data structure
+- Trie data structure with frequency logic
 
 ---
 
 ## 📌 Future Improvements
 
-- Add dark/light theme toggle  
-- Connect to a real-time dictionary API  
-- Use localStorage for saving frequently used words  
-- Mobile responsiveness
+- Dark/light theme toggle
+- Save words to localStorage
+- Animated transitions
+- Backend support for persistent word storage
 
 ---
 
 ## 👤 Author
 
-Created by **[Your Name](https://github.com/your-username)** – feel free to fork, contribute or suggest ideas!
+Created by **[Lior Kirshner](https://github.com/LiorKirshner)**  
+Feel free to fork, contribute or suggest improvements!
