@@ -60,7 +60,7 @@ AutoComplete_Trie_Project/
 
 ## 🖼️ Screenshot
 
-![Autocomplete Trie UI Preview](./assets/screenshot.png)
+![Autocomplete Trie UI Preview](./assets/terminal_Screenshot)
 
 ---
 
