@@ -1,4 +1,4 @@
-//console interface
+// Legacy CLI interface for AutoCompleteTrie
 const readline = require("readline");
 const AutoCompleteTrie = require("../trie/AutoCompleteTrie");
 
