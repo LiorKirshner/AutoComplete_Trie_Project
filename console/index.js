@@ -10,6 +10,7 @@ const rl = readline.createInterface({
 const trie = new AutoCompleteTrie();
 
 // 🟡 הצג הודעת פתיחה ופקודות
+console.log("");
 console.log("📚 Welcome to the AutoComplete Console Interface!");
 console.log("Type 'help' to see available commands.\n");
 
