@@ -58,9 +58,16 @@ AutoComplete_Trie_Project/
 
 ---
 
-## 🖼️ Screenshot
+## 🖼️ Screenshots
 
-## ![Terminal Autocomplete Screenshot](./assets/terminal_Screenshot.png)
+- 🏠 **Home View** – Initial view when entering the site:  
+  ![Home View](./assets/home_screenshot.png)
+
+- 🔤 **Word Suggestions** – Typing in the input field shows predicted words based on the prefix:  
+  ![Word Suggestions](./assets/word_screenshot.png)
+
+- 💻 **Terminal Interface** – The console version of the project:  
+  ![Terminal Screenshot](./assets/terminal_Screenshot.png)
 
 ## 🧠 Built With
 
