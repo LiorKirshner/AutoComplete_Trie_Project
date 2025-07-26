@@ -43,14 +43,4 @@ function _allWordsHelper(prefix, node, allWords) {
   return allWords;
 }
 
-const helpers = {
-  printAllLetters,
-  _getRemainingTree,
-  _allWordsHelper,
-};
-
-if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
-  module.exports = helpers;
-} else {
-  window.TrieHelpers = helpers;
-}
+export { printAllLetters, _getRemainingTree, _allWordsHelper };

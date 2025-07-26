@@ -7,10 +7,4 @@ class TrieNode {
   }
 }
 
-// תמיכה ב-Node.js
-if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
-  module.exports = TrieNode;
-} else {
-  // תמיכה בדפדפן
-  window.TrieNode = TrieNode;
-}
+export default TrieNode;
