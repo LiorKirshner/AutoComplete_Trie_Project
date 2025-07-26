@@ -43,8 +43,4 @@ function _allWordsHelper(prefix, node, allWords) {
   return allWords;
 }
 
-module.exports = {
-  printAllLetters,
-  _getRemainingTree,
-  _allWordsHelper,
-};
+export { printAllLetters, _getRemainingTree, _allWordsHelper };

@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "autocomplete_trie_project",
   "version": "1.0.0",
   "description": "A simple autocomplete application built with **JavaScript**, **HTML**, and **CSS**, using a **Trie (Prefix Tree)** data structure.   It suggests word completions based on user input – just like a search engine.",

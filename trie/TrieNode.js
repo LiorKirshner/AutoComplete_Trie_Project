@@ -6,4 +6,5 @@ class TrieNode {
     this.frequency = 0; //hold the frequency of each word
   }
 }
-module.exports = TrieNode;
+
+export default TrieNode;

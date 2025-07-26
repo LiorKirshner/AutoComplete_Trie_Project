@@ -1,13 +1,14 @@
-const TrieNode = require("../trie/TrieNode");
-const {
+import TrieNode from "./TrieNode.js";
+import {
   printAllLetters,
   _getRemainingTree,
   _allWordsHelper,
-} = require("./trieHelpers.js");
+} from "./trieHelpers.js";
 
 class AutoCompleteTrie {
   constructor() {
     this.root = new TrieNode();
+    this.wordCount = 0;
   }
   addWord(word) {
     let node = this.root;
@@ -17,7 +18,12 @@ class AutoCompleteTrie {
       }
       node = node.children[char];
     }
+    if (node.endOfWord) {
+      return false; // word already exists
+    }
     node.endOfWord = true;
+    this.wordCount++;
+    return true;
   }
   findWord(word) {
     let node = this.root;
@@ -67,4 +73,5 @@ class AutoCompleteTrie {
     return node.frequency;
   }
 }
-module.exports = AutoCompleteTrie;
+
+export default AutoCompleteTrie;
