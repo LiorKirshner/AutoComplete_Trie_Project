@@ -28,6 +28,11 @@ document.addEventListener("DOMContentLoaded", () => {
       feedbackMessage.innerHTML = `<div class="error-message">⚠️ "${word}" already exists in the dictionary.</div>`;
     }
     addWordInput.value = ""; // נקה את הקלט
+
+    setTimeout(() => {
+      feedbackMessage.innerHTML = "";
+    }, 8000);
+
     updateWordCountDisplay();
   });
 
@@ -47,9 +52,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const restPart = wordStr.slice(prefix.length);
 
       const div = document.createElement("div");
-      div.innerHTML = `<span class="highlight">${boldPart}</span>${restPart} <span class="freq">(${item.freq})</span>`;
+      div.innerHTML = `<span class="highlight">${boldPart}</span>${restPart} `;
       div.addEventListener("click", () => {
         prefixInput.value = wordStr;
+        setTimeout(() => {
+          prefixInput.value = "";
+        }, 2000);
+
         suggestions.style.display = "none";
         trie.incrementCount(wordStr); // 🔁 סימון שימוש
       });
@@ -72,5 +81,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   updateWordCountDisplay();
 });
-
-document;

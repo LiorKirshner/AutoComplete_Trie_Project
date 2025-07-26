@@ -87,7 +87,11 @@ h1 {
   z-index: 10;
   overflow-y: auto;
 }
-
+/* Style suggestion items on hover */
+#suggestions > div:hover {
+  background-color: #eef1ff;
+  cursor: pointer;
+}
 .feedback-message {
   padding: 0.75em;
   border-radius: 0.25em;
@@ -124,6 +128,17 @@ h1 {
 .word-count-label {
   font-size: 1em;
   color: #333;
+}
+
+/* Style for used notification inside suggestions */
+.used-notification {
+  background-color: #6c63ff;
+  color: white;
+  padding: 0.5em 1em;
+  border-radius: 0.25em;
+  font-size: 0.95em;
+  margin-bottom: 0.5em;
+  text-align: center;
 }
 
 /* 📱 Mobile adjustments */
