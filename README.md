@@ -60,9 +60,7 @@ AutoComplete_Trie_Project/
 
 ## 🖼️ Screenshot
 
-![Autocomplete Trie UI Preview](./assets/terminal_Screenshot.png)
-
----
+## ![Terminal Autocomplete Screenshot](./assets/terminal_Screenshot.png)
 
 ## 🧠 Built With
 
