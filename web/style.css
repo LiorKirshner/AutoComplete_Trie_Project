@@ -55,22 +55,37 @@ h1 {
   background-color: #574fd6;
 }
 
+.autocomplete-section {
+  position: relative;
+}
+
 #prefixInput {
   padding: 0.75em;
   font-size: 1em;
-  border-radius: 0.25em;
+  border-radius: 0.25em 0.25em 0 0; /* רק פינות עליונות מעוגלות */
   border: 0.0625em solid #ccc;
   width: 100%;
   box-sizing: border-box;
 }
-
+.highlight {
+  color: #6c63ff;
+  font-weight: bold;
+}
 #suggestions {
+  display: none; /* מוסתר כברירת מחדל */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
   background-color: white;
   border: 0.0625em solid #ccc;
-  border-radius: 0.25em;
-  padding: 0.75em;
+  border-top: none; /* חיבור ויזואלי לתיבה העליונה */
+  border-radius: 0 0 0.25em 0.25em; /* רק פינות תחתונות מעוגלות */
+  padding: 0.5em;
   font-size: 1em;
-  word-wrap: break-word;
+  box-sizing: border-box;
+  z-index: 10;
+  overflow-y: auto;
 }
 
 .feedback-message {

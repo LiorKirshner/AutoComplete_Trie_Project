@@ -32,16 +32,33 @@ document.addEventListener("DOMContentLoaded", () => {
     updateWordCountDisplay();
   });
 
-  const suggestions = document.getElementById("suggestions");
   prefixInput.addEventListener("input", (event) => {
-    const currentValue = event.target.value;
-    const suggestWords = trie.predictWords(currentValue);
+    const prefix = event.target.value.toLowerCase().trim();
+    const suggestWords = trie.predictWords(prefix);
     suggestions.innerHTML = "";
-    for (let word of suggestWords) {
+
+    if (prefix === "" || suggestWords.length === 0) {
+      suggestions.style.display = "none";
+      return;
+    }
+
+    for (let item of suggestWords) {
+      const wordStr = item.word;
+      const boldPart = wordStr.slice(0, prefix.length);
+      const restPart = wordStr.slice(prefix.length);
+
       const div = document.createElement("div");
-      div.textContent = word.word + ` (${word.freq})`;
+      div.innerHTML = `<span class="highlight">${boldPart}</span>${restPart} <span class="freq">(${item.freq})</span>`;
+      div.addEventListener("click", () => {
+        prefixInput.value = wordStr;
+        suggestions.style.display = "none";
+        trie.incrementCount(wordStr); // 🔁 סימון שימוש
+      });
+
       suggestions.appendChild(div);
     }
+
+    suggestions.style.display = "block";
   });
   updateWordCountDisplay();
 });
