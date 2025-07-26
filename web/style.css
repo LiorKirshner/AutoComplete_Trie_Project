@@ -17,7 +17,7 @@ h1 {
 
 .add-word-section,
 .autocomplete-section,
-.status-section {
+.word-count-box {
   margin: 1.5rem auto;
   width: 90%;
   display: flex;
@@ -104,9 +104,26 @@ h1 {
   color: #721c24;
 }
 
-#wordCount {
+.word-count-box {
+  background-color: #f8fafd;
+  border-radius: 0.75em;
+  padding: 1.2em;
+  text-align: center;
+  display: inline-block;
+  box-shadow: 0 0.1em 0.4em rgba(0, 0, 0, 0.05);
+  margin-top: 1em;
+}
+
+.word-count-number {
+  color: #5c6ac4;
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-bottom: 0.3em;
+}
+
+.word-count-label {
   font-size: 1em;
-  margin-top: 1rem;
+  color: #333;
 }
 
 /* 📱 Mobile adjustments */

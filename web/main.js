@@ -3,9 +3,8 @@ import AutoCompleteTrie from "../trie/AutoCompleteTrie.js";
 const trie = new AutoCompleteTrie();
 
 function updateWordCountDisplay() {
-  const count = trie.wordCount;
   const counterDiv = document.getElementById("wordCount");
-  counterDiv.textContent = `📊 Total words in dictionary: ${count}`;
+  counterDiv.textContent = trie.wordCount;
 }
 
 console.log("🔥 JS loaded!");
