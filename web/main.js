@@ -2,16 +2,8 @@ import AutoCompleteTrie from "../trie/AutoCompleteTrie.js";
 // 📄 web/main.js
 const trie = new AutoCompleteTrie();
 
-function countWordsInTrie(node) {
-  let count = node.endOfWord ? 1 : 0;
-  for (const child of Object.values(node.children)) {
-    count += countWordsInTrie(child);
-  }
-  return count;
-}
-
 function updateWordCountDisplay() {
-  const count = countWordsInTrie(trie.root);
+  const count = trie.wordCount;
   const counterDiv = document.getElementById("wordCount");
   counterDiv.textContent = `📊 Total words in dictionary: ${count}`;
 }
@@ -26,12 +18,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const word = input.value.trim().toLowerCase();
 
     if (!word) {
-      output.textContent = "⚠️ Please enter a word.";
+      output.innerHTML = `<div class="error-message">⚠️ Cannot add empty word`;
       return;
     }
 
     const added = trie.addWord(word);
-    if (added) {
+    if (added && trie.findWord(word)) {
       output.innerHTML = `<div class="success-message">✅ "${word}" added to dictionary.</div>`;
     } else {
       output.innerHTML = `<div class="error-message">⚠️ "${word}" already exists in the dictionary.</div>`;

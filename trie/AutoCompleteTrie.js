@@ -8,6 +8,7 @@ import {
 class AutoCompleteTrie {
   constructor() {
     this.root = new TrieNode();
+    this.wordCount = 0;
   }
   addWord(word) {
     let node = this.root;
@@ -21,6 +22,7 @@ class AutoCompleteTrie {
       return false; // word already exists
     }
     node.endOfWord = true;
+    this.wordCount++;
     return true;
   }
   findWord(word) {
