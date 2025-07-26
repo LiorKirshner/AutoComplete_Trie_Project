@@ -18,6 +18,19 @@ It suggests ranked word completions based on user input – just like a search e
 
 ---
 
+## 🖼️ Screenshots
+
+- 🏠 **Home View** – Initial view when entering the site:  
+  ![Home View](./assets/home_screenshot.png)
+
+- 🔤 **Word Suggestions** – Typing in the input field shows predicted words based on the prefix:  
+  ![Word Suggestions](./assets/word_screenshot.png)
+
+- 💻 **Terminal Interface** – The console version of the project:  
+  ![Terminal Screenshot](./assets/terminal_Screenshot.png)
+
+---
+
 ## 📁 Project Structure
 
 ```
@@ -58,17 +71,6 @@ AutoComplete_Trie_Project/
 
 ---
 
-## 🖼️ Screenshots
-
-- 🏠 **Home View** – Initial view when entering the site:  
-  ![Home View](./assets/home_screenshot.png)
-
-- 🔤 **Word Suggestions** – Typing in the input field shows predicted words based on the prefix:  
-  ![Word Suggestions](./assets/word_screenshot.png)
-
-- 💻 **Terminal Interface** – The console version of the project:  
-  ![Terminal Screenshot](./assets/terminal_Screenshot.png)
-
 ## 🧠 Built With
 
 - HTML + CSS (Responsive, accessible)
@@ -87,6 +89,12 @@ AutoComplete_Trie_Project/
 ---
 
 ## 👤 Author
+
+<p align="center">
+  <a href="https://github.com/LiorKirshner">
+    <img src="https://github.com/LiorKirshner/LiorKirshner/blob/main/blue_logo.png?raw=true" alt="Lior Kirshner Logo" width="100"/>
+  </a>
+</p>
 
 Created by **[Lior Kirshner](https://github.com/LiorKirshner)**  
 Feel free to fork, contribute or suggest improvements!
