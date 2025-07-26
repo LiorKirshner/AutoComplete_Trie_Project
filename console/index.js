@@ -53,10 +53,14 @@ function prompt() {
       case "complete":
         if (argument) {
           const results = trie.predictWords(argument) || [];
-          console.log(
-            "🔎 Completions:",
-            results.length ? results : "No suggestions."
-          );
+          if (results.length) {
+            console.log("🔎 Suggestions:");
+            results.forEach(({ word, freq }, idx) => {
+              console.log(`  ${idx + 1}. ${word} (used ${freq} times)`);
+            });
+          } else {
+            console.log("🔎 No suggestions.");
+          }
         } else {
           console.log("⚠️ Please provide a prefix to complete.");
         }
