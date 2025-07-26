@@ -59,6 +59,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     suggestions.style.display = "block";
   });
+
+  fetch("../data/defaultWords.json")
+    .then((res) => res.json())
+    .then((words) => {
+      words.forEach((word) => trie.addWord(word));
+      updateWordCountDisplay();
+    })
+    .catch((err) => {
+      console.error("❌ Failed to load default words:", err);
+      updateWordCountDisplay();
+    });
   updateWordCountDisplay();
 });
 
