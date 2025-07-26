@@ -67,4 +67,10 @@ class AutoCompleteTrie {
     return node.frequency;
   }
 }
-module.exports = AutoCompleteTrie;
+
+// תנאי להבדלה בין Node לדפדפן
+if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
+  module.exports = AutoCompleteTrie; // Node.js
+} else {
+  window.AutoCompleteTrie = AutoCompleteTrie; // Browser
+}
