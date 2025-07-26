@@ -18,9 +18,9 @@ function updateWordCountDisplay() {
 
 console.log("🔥 JS loaded!");
 document.addEventListener("DOMContentLoaded", () => {
+  const addBtn = document.getElementById("addBtn");
   const input = document.getElementById("wordInput");
   const output = document.getElementById("output");
-  const addBtn = document.getElementById("addBtn");
 
   addBtn.addEventListener("click", () => {
     const word = input.value.trim().toLowerCase();
@@ -30,8 +30,12 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    trie.addWord(word);
-    output.textContent = `✅ "${word}" added to dictionary.`;
+    const added = trie.addWord(word);
+    if (added) {
+      output.innerHTML = `<div class="success-message">✅ "${word}" added to dictionary.</div>`;
+    } else {
+      output.innerHTML = `<div class="error-message">⚠️ "${word}" already exists in the dictionary.</div>`;
+    }
     input.value = ""; // נקה את הקלט
     updateWordCountDisplay();
   });

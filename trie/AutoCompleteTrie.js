@@ -18,7 +18,7 @@ class AutoCompleteTrie {
       node = node.children[char];
     }
     if (node.endOfWord) {
-      return false; // המילה כבר קיימת
+      return false; // word already exists
     }
     node.endOfWord = true;
     return true;
