@@ -6,4 +6,11 @@ class TrieNode {
     this.frequency = 0; //hold the frequency of each word
   }
 }
-module.exports = TrieNode;
+
+// תמיכה ב-Node.js
+if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
+  module.exports = TrieNode;
+} else {
+  // תמיכה בדפדפן
+  window.TrieNode = TrieNode;
+}

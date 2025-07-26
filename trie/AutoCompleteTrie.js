@@ -1,9 +1,11 @@
-const TrieNode = require("../trie/TrieNode");
-const {
-  printAllLetters,
-  _getRemainingTree,
-  _allWordsHelper,
-} = require("./trieHelpers.js");
+// בדיקה כפולה – אם בדפדפן, קח מה-window
+const TrieNode =
+  typeof require !== "undefined" ? require("./TrieNode") : window.TrieNode;
+
+const { printAllLetters, _getRemainingTree, _allWordsHelper } =
+  typeof require !== "undefined"
+    ? require("./trieHelpers")
+    : window.TrieHelpers;
 
 class AutoCompleteTrie {
   constructor() {
@@ -68,9 +70,9 @@ class AutoCompleteTrie {
   }
 }
 
-// תנאי להבדלה בין Node לדפדפן
+// תמיכה כפולה
 if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
-  module.exports = AutoCompleteTrie; // Node.js
+  module.exports = AutoCompleteTrie;
 } else {
-  window.AutoCompleteTrie = AutoCompleteTrie; // Browser
+  window.AutoCompleteTrie = AutoCompleteTrie;
 }
