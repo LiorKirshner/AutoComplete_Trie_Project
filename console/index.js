@@ -15,11 +15,12 @@ console.log("Type 'help' to see available commands.\n");
 
 function showCommands() {
   console.log(`Available commands:
-  add <word>       - Add a word to the dictionary
-  find <word>      - Check if word exists
-  complete <prefix> - Show all completions for prefix
-  help             - Show commands
-  exit             - Quit the application
+  add <word>         - Add a word to the dictionary
+  find <word>        - Check if word exists
+  complete <prefix>  - Show all completions for prefix
+  use <word>         - increment usage count for a word in the dictionary
+  help               - Show commands
+  exit               - Quit the application
   `);
 }
 
@@ -52,10 +53,14 @@ function prompt() {
       case "complete":
         if (argument) {
           const results = trie.predictWords(argument) || [];
-          console.log(
-            "🔎 Completions:",
-            results.length ? results : "No suggestions."
-          );
+          if (results.length) {
+            console.log("🔎 Suggestions:");
+            results.forEach(({ word, freq }, idx) => {
+              console.log(`  ${idx + 1}. ${word} (used ${freq} times)`);
+            });
+          } else {
+            console.log("🔎 No suggestions.");
+          }
         } else {
           console.log("⚠️ Please provide a prefix to complete.");
         }
@@ -69,7 +74,10 @@ function prompt() {
         console.log("👋 Goodbye!");
         rl.close();
         return;
-
+      case "use":
+        let count = trie.incrementCount(argument);
+        console.log(`✔️ Incremented usage for "${argument}" (now ${count}).`);
+        break;
       default:
         console.log("❓ Unknown command. Type 'help' for a list of commands.");
     }
