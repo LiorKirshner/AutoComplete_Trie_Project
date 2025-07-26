@@ -17,7 +17,11 @@ class AutoCompleteTrie {
       }
       node = node.children[char];
     }
+    if (node.endOfWord) {
+      return false; // המילה כבר קיימת
+    }
     node.endOfWord = true;
+    return true;
   }
   findWord(word) {
     let node = this.root;
